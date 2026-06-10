@@ -1,0 +1,6 @@
+resources:
+  - ../../base
+
+images:
+  - name: nginx
+    newTag: latest

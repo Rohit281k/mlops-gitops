@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: it-career-api
+  namespace: argocd
+spec:
+  project: default
+
+  source:
+    repoURL: https://github.com/Rohit281k/mlops-gitops.git
+    targetRevision: main
+    path: apps/it-career-api/overlays/prod
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
+
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true

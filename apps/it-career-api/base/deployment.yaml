@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: it-career-api
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: it-career-api
+  template:
+    metadata:
+      labels:
+        app: it-career-api
+    spec:
+      containers:
+      - name: it-career-api
+        image: nginx
+        ports:
+        - containerPort: 80
+
